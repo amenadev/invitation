@@ -141,17 +141,23 @@
     to   { box-shadow: 0 0 12px 3px #00ff0088, inset 0 0 6px 1px rgba(0,255,0,0.2); }
   }
 
-  /* ===== Contador ===== */
-  #countdown { display: flex; justify-content: center; gap: 15px; margin-top: 15px; font-weight:700; font-family: 'Segoe UI', sans-serif; flex-wrap: wrap; }
+  /* ===== Contador en línea ===== */
+  #countdown {
+    display: flex;
+    justify-content: center;
+    gap: 8px; /* espacio optimizado */
+    margin-top: 15px;
+    font-weight: 700;
+    font-family: 'Segoe UI', sans-serif;
+    flex-wrap: nowrap; /* siempre en una línea */
+  }
 
   .countdown-segment {
     background: rgba(0,0,0,0.95);
     border-radius: 15px;
-    padding: 18px 12px;
-    width: 18vw;
-    max-width: 65px;
-    min-width: 50px;
-    height: 80px;
+    padding: 12px 8px;
+    width: 60px;
+    height: 70px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -162,10 +168,13 @@
     transition: background 0.3s, box-shadow 0.3s;
   }
 
-  .countdown-segment:hover { background: rgba(0,0,0,1); box-shadow:0 0 6px 1.2px #ffd70088, inset 0 0 6px 1.2px rgba(255,215,0,0.2); }
+  .countdown-segment:hover { 
+    background: rgba(0,0,0,1); 
+    box-shadow:0 0 6px 1.2px #ffd70088, inset 0 0 6px 1.2px rgba(255,215,0,0.2); 
+  }
 
-  .countdown-number { font-size:2em; line-height:1; }
-  .countdown-label { font-size:0.85em; margin-top:7px; letter-spacing:1.5px; color:#ffcc0099; }
+  .countdown-number { font-size: 1.8em; }
+  .countdown-label { font-size: 0.75em; margin-top:5px; letter-spacing:1.2px; color:#ffcc0099; }
 
   #fireworks { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
   .footer { margin-top:30px; font-size:0.9em; opacity:0.75; color:#ddd8bb; }
@@ -174,8 +183,9 @@
   @media (max-width: 480px) {
     h1 { font-size: 2em; }
     .subtitle { font-size: 1em; }
-    .countdown-number { font-size: 1.5em; }
-    .countdown-segment { width: 16vw; height: 70px; }
+    .countdown-number { font-size: 1.4em; }
+    .countdown-label { font-size: 0.65em; }
+    .countdown-segment { width: 50px; height: 65px; padding: 10px 5px; }
   }
 </style>
 </head>
@@ -216,8 +226,8 @@
     fireworks.start();
 
     function confeti(){ confetti({ particleCount:200, spread:100, origin:{y:0.6} }); }
-    function abrirMapa(){ confeti(); setTimeout(()=>{window.open("https://maps.app.goo.gl/Zp3C1t5icEyZyLrN6");},400);}
-    function confirmar(){ confeti(); setTimeout(()=>{window.open("https://wa.me/56988885577");},400);}
+    function abrirMapa(){ confeti(); setTimeout(()=>{window.open("https://maps.app.goo.gl/CpX5uckPZ8k8zamt8");},400);}
+    function confirmar(){ confeti(); setTimeout(()=>{window.open("https://wa.me/56985029080");},400);}
 
     const eventDate = new Date("March 21, 2026 21:00:00").getTime();
     function pad(v){return v<10?"0"+v:v;}
