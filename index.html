@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cumpleaños 50</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -19,8 +20,9 @@
   }
 
   .container {
-    padding: 60px 20px;
+    padding: 40px 15px;
     max-width: 500px;
+    width: 90%;
     margin: auto;
   }
 
@@ -140,13 +142,16 @@
   }
 
   /* ===== Contador ===== */
-  #countdown { display: flex; justify-content: center; gap: 15px; margin-top: 15px; font-weight:700; font-family: 'Segoe UI', sans-serif; }
+  #countdown { display: flex; justify-content: center; gap: 15px; margin-top: 15px; font-weight:700; font-family: 'Segoe UI', sans-serif; flex-wrap: wrap; }
 
   .countdown-segment {
     background: rgba(0,0,0,0.95);
     border-radius: 15px;
     padding: 18px 12px;
-    width: 65px; height: 80px;
+    width: 18vw;
+    max-width: 65px;
+    min-width: 50px;
+    height: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -164,6 +169,14 @@
 
   #fireworks { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
   .footer { margin-top:30px; font-size:0.9em; opacity:0.75; color:#ddd8bb; }
+
+  /* ===== Media Queries para móviles ===== */
+  @media (max-width: 480px) {
+    h1 { font-size: 2em; }
+    .subtitle { font-size: 1em; }
+    .countdown-number { font-size: 1.5em; }
+    .countdown-segment { width: 16vw; height: 70px; }
+  }
 </style>
 </head>
 
@@ -171,7 +184,6 @@
   <div id="fireworks"></div>
 
   <div class="container">
-
     <h1><i class="fa-solid fa-cake-candles"></i> 50 Años</h1>
     <div class="subtitle">¡Celebremos juntos este momento especial!</div>
 
