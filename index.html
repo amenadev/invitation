@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cumpleaños 50</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
 <style>
   /* ===== Fondo y tipografía ===== */
@@ -215,7 +215,7 @@
       <button class="whatsapp" onclick="confirmar()"><i class="fab fa-whatsapp"></i> Confirmar por WhatsApp</button>
     </div>
 
-    <div class="footer">Te esperamos para celebrar 🎉</div>
+    <div class="footer"><i class="fa-solid fa-champagne-glasses fa-fade" style="color: #db1111;"></i> Te esperamos para celebrar <i class="fa-solid fa-champagne-glasses fa-fade" style="color: #f1bb65;"></i></div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -263,10 +263,10 @@
       const m=Math.floor((dist%(1000*60*60))/(1000*60));
       const s=Math.floor((dist%(1000*60))/1000);
       document.getElementById("countdown").innerHTML=`
-      <div class="countdown-segment"><div class="countdown-number">${pad(d)}</div><div class="countdown-label">D</div></div>
-      <div class="countdown-segment"><div class="countdown-number">${pad(h)}</div><div class="countdown-label">H</div></div>
-      <div class="countdown-segment"><div class="countdown-number">${pad(m)}</div><div class="countdown-label">M</div></div>
-      <div class="countdown-segment"><div class="countdown-number">${pad(s)}</div><div class="countdown-label">S</div></div>`;
+      <div class="countdown-segment"><div class="countdown-number">${pad(d)}</div><div class="countdown-label">Día</div></div>
+      <div class="countdown-segment"><div class="countdown-number">${pad(h)}</div><div class="countdown-label">Hor</div></div>
+      <div class="countdown-segment"><div class="countdown-number">${pad(m)}</div><div class="countdown-label">Mim</div></div>
+      <div class="countdown-segment"><div class="countdown-number">${pad(s)}</div><div class="countdown-label">Seg</div></div>`;
     }
 
     actualizarCountdown(); 
