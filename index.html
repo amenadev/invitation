@@ -17,6 +17,7 @@
     text-align: center;
     overflow-x: hidden;
     min-height: 100vh;
+    cursor: pointer;
   }
 
   .container {
@@ -60,7 +61,6 @@
     opacity: 0;
     transform: translateY(20px);
     animation: fade-in 1s ease forwards;
-    animation-delay: 0.3s;
   }
 
   @keyframes fade-in {
@@ -220,17 +220,37 @@
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2/dist/index.umd.js"></script>
+
   <script>
     const container = document.getElementById("fireworks");
     const fireworks = new Fireworks.default(container, { hue:{min:0,max:360}, delay:{min:15,max:30} });
     fireworks.start();
 
-    function confeti(){ confetti({ particleCount:200, spread:100, origin:{y:0.6} }); }
-    function abrirMapa(){ confeti(); setTimeout(()=>{window.open("https://maps.app.goo.gl/CpX5uckPZ8k8zamt8");},400);}
-    function confirmar(){ confeti(); setTimeout(()=>{window.open("https://wa.me/56985029080");},400);}
+    function confeti(){ 
+      confetti({ particleCount:200, spread:100, origin:{y:0.6} }); 
+    }
+
+    function abrirMapa(){ 
+      confeti(); 
+      setTimeout(()=>{window.open("https://maps.app.goo.gl/Zp3C1t5icEyZyLrN6");},400);
+    }
+
+    function confirmar(){ 
+      confeti(); 
+      setTimeout(()=>{window.open("https://wa.me/56988885577");},400);
+    }
+
+    // Confeti en cualquier clic de la página (excepto botones)
+    document.body.addEventListener('click', (e) => {
+      if (!e.target.closest('button')) {
+        confeti();
+      }
+    });
 
     const eventDate = new Date("March 21, 2026 21:00:00").getTime();
-    function pad(v){return v<10?"0"+v:v;}
+
+    function pad(v){ return v<10?"0"+v:v; }
+
     function actualizarCountdown(){
       const now = new Date().getTime();
       const dist = eventDate-now;
@@ -248,7 +268,10 @@
       <div class="countdown-segment"><div class="countdown-number">${pad(m)}</div><div class="countdown-label">M</div></div>
       <div class="countdown-segment"><div class="countdown-number">${pad(s)}</div><div class="countdown-label">S</div></div>`;
     }
-    actualizarCountdown(); setInterval(actualizarCountdown,1000);
+
+    actualizarCountdown(); 
+    setInterval(actualizarCountdown,1000);
   </script>
+
 </body>
 </html>
