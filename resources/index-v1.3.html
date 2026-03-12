@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cambio de Folio – 50 Años</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Montserrat',sans-serif;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:32px;
+font-weight:300;
+}
+
+.big{
+font-size:72px;
+font-weight:800;
+background:linear-gradient(45deg,#ffd700,#fff,#ffd700);
+-webkit-background-clip:text;
+color:transparent;
+margin:15px 0;
+}
+
+.subtitle{
+font-size:18px;
+opacity:0.8;
+}
+
+/* BUTTON */
+
+.cta{
+margin-top:30px;
+padding:16px 32px;
+border-radius:40px;
+background:#ffd700;
+color:black;
+font-weight:bold;
+text-decoration:none;
+}
+
+/* SECTION */
+
+section{
+padding:70px 20px;
+}
+
+/* CARD */
+
+.card{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(12px);
+padding:30px;
+border-radius:20px;
+max-width:420px;
+margin:auto;
+}
+
+/* COUNTDOWN */
+
+.countdown{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-top:25px;
+}
+
+.time{
+background:rgba(0,0,0,0.5);
+padding:18px;
+border-radius:12px;
+min-width:75px;
+}
+
+.time span{
+display:block;
+font-size:26px;
+font-weight:700;
+}
+
+/* BUTTONS */
+
+.buttons{
+margin-top:25px;
+}
+
+.btn{
+padding:14px 22px;
+border:none;
+border-radius:30px;
+margin:8px;
+font-size:16px;
+cursor:pointer;
+}
+
+.confirm{background:#25D366;color:white;}
+.no{background:#ff4d4d;color:white;}
+.maybe{background:#ffaa00;color:white;}
+.maps{background:#4285F4;color:white;}
+
+/* MAP */
+
+iframe{
+margin-top:20px;
+width:100%;
+max-width:500px;
+height:300px;
+border:0;
+border-radius:20px;
+}
+
+/* FOOTER */
+
+footer{
+margin:50px 0;
+opacity:0.7;
+}
+
+/* PARTICLES */
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+pointer-events:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- HERO -->
+
+<div class="hero">
+
+<h1>Te invito a mi</h1>
+
+<div class="big">Cambio de Folio</div>
+
+<div class="big">50</div>
+
+<div class="subtitle">
+Una noche especial para celebrar juntos
+</div>
+
+<a href="#evento" class="cta">
+Ver Invitación
+</a>
+
+</div>
+
+<!-- EVENTO -->
+
+<section id="evento">
+
+<div class="card">
+
+🥳 Cambiaré de folio y quiero celebrarlo contigo.
+
+<br><br>
+
+📅 <b>Sábado 21 de marzo</b><br>
+⏰ <b>21:00 hrs</b><br>
+📍 <b>Parcela R & V</b>
+
+</div>
+
+</section>
+
+<!-- COUNTDOWN -->
+
+<section>
+
+<h2>⏳ Cuenta regresiva</h2>
+
+<div class="countdown">
+
+<div class="time">
+<span id="d"></span>
+Días
+</div>
+
+<div class="time">
+<span id="h"></span>
+Horas
+</div>
+
+<div class="time">
+<span id="m"></span>
+Min
+</div>
+
+<div class="time">
+<span id="s"></span>
+Seg
+</div>
+
+</div>
+
+</section>
+
+<!-- RSVP -->
+
+<section>
+
+<div class="card">
+
+<h2>Confirma tu asistencia</h2>
+
+<div class="buttons">
+
+<button class="btn confirm"
+onclick="window.open('https://wa.me/5698885577?text=Confirmo%20mi%20asistencia%20al%20Cambio%20de%20Folio%20🎉')">
+✔ Confirmo
+</button>
+
+<button class="btn no"
+onclick="window.open('https://wa.me/5698885577?text=No%20puedo%20asistir')">
+❌ No puedo
+</button>
+
+<button class="btn maybe"
+onclick="window.open('https://wa.me/5698885577?text=Quizás%20pueda%20ir')">
+🤔 Quizá
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- MAP -->
+
+<section>
+
+<h2>📍 Cómo llegar</h2>
+
+<iframe src="https://maps.google.com/maps?q=-33.45,-70.66&z=15&output=embed"></iframe>
+
+<br>
+
+<button class="btn maps"
+onclick="window.open('https://maps.app.goo.gl/Zp3C1t5icEyZyLrN6')">
+Abrir en Google Maps
+</button>
+
+</section>
+
+<footer>
+
+🎉 ¡Te espero para celebrar este nuevo folio!
+
+</footer>
+
+<script>
+
+/* COUNTDOWN */
+
+var fecha=new Date("Mar 21, 2026 21:00:00").getTime();
+
+setInterval(function(){
+
+var ahora=new Date().getTime();
+var dif=fecha-ahora;
+
+document.getElementById("d").innerHTML=Math.floor(dif/(1000*60*60*24));
+document.getElementById("h").innerHTML=Math.floor((dif%(1000*60*60*24))/(1000*60*60));
+document.getElementById("m").innerHTML=Math.floor((dif%(1000*60*60))/(1000*60));
+document.getElementById("s").innerHTML=Math.floor((dif%(1000*60))/1000);
+
+},1000);
+
+
+/* PARTICLES */
+
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+
+for(let i=0;i<120;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*3+1,
+dx:Math.random()-0.5,
+dy:Math.random()-0.5
+});
+}
+
+function animate(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle="rgba(255,255,255,0.7)";
+ctx.fill();
+
+p.x+=p.dx;
+p.y+=p.dy;
+
+});
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cambio de Folio 50</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:Poppins;
+background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+color:white;
+text-align:center;
+}
+
+.hero{
+padding:120px 20px;
+}
+
+.hero h1{
+font-family:"Playfair Display";
+font-size:42px;
+}
+
+.gold{
+font-size:70px;
+color:#ffd700;
+text-shadow:0 0 15px rgba(255,215,0,0.7);
+}
+
+.card{
+background:rgba(255,255,255,0.08);
+padding:30px;
+margin:30px auto;
+max-width:420px;
+border-radius:20px;
+backdrop-filter:blur(12px);
+}
+
+.countdown{
+display:flex;
+justify-content:center;
+gap:10px;
+}
+
+.box{
+background:#00000060;
+padding:15px;
+border-radius:10px;
+min-width:70px;
+}
+
+.box span{
+font-size:26px;
+font-weight:bold;
+display:block;
+}
+
+button{
+padding:14px 24px;
+border:none;
+border-radius:30px;
+margin:10px;
+font-size:16px;
+cursor:pointer;
+}
+
+.whatsapp{background:#25D366;color:white;}
+.maps{background:#ff4444;color:white;}
+
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+
+<h1>Te invito a mi</h1>
+
+<div class="gold">Cambio de Folio</div>
+<div class="gold">50</div>
+
+<p>Una noche especial para celebrar juntos</p>
+
+</div>
+
+<div class="card">
+
+📅 Sábado 21 de marzo  
+⏰ 21:00 hrs  
+📍 Parcela R & V
+
+</div>
+
+<h2>Cuenta regresiva</h2>
+
+<div class="countdown">
+
+<div class="box"><span id="d"></span>D</div>
+<div class="box"><span id="h"></span>H</div>
+<div class="box"><span id="m"></span>M</div>
+<div class="box"><span id="s"></span>S</div>
+
+</div>
+
+<div class="card">
+
+<button class="whatsapp"
+onclick="window.open('https://wa.me/5698885577?text=Confirmo%20mi%20asistencia%20al%20Cambio%20de%20Folio')">
+Confirmar asistencia
+</button>
+
+<br>
+
+<button class="maps"
+onclick="window.open('https://maps.app.goo.gl/Zp3C1t5icEyZyLrN6')">
+Ver ubicación
+</button>
+
+</div>
+
+<script>
+
+var fecha=new Date("Mar 21, 2026 21:00:00").getTime();
+
+setInterval(function(){
+
+var ahora=new Date().getTime();
+var dif=fecha-ahora;
+
+document.getElementById("d").innerHTML=Math.floor(dif/(1000*60*60*24));
+document.getElementById("h").innerHTML=Math.floor((dif%(1000*60*60*24))/(1000*60*60));
+document.getElementById("m").innerHTML=Math.floor((dif%(1000*60*60))/(1000*60));
+document.getElementById("s").innerHTML=Math.floor((dif%(1000*60))/1000);
+
+},1000);
+
+</script>
+
+</body>
+</html>

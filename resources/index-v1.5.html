@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Celebración 50 Años</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+text-align:center;
+background:#0b0b0b;
+color:white;
+}
+
+.container{
+padding:40px 20px;
+}
+
+h1{
+font-size:3em;
+color:#ffd700;
+}
+
+h2{
+font-weight:normal;
+}
+
+.card{
+background:#1e1e1e;
+padding:25px;
+margin:20px auto;
+border-radius:15px;
+max-width:400px;
+}
+
+button{
+padding:15px 25px;
+margin:10px;
+border:none;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+}
+
+.map{
+background:#2196f3;
+color:white;
+}
+
+.rsvp{
+background:#25D366;
+color:white;
+}
+
+#countdown{
+font-size:1.8em;
+margin-top:15px;
+color:#ffcc00;
+}
+
+#fireworks{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="fireworks"></div>
+
+<div class="container">
+
+<h1>🎂 Cumpleaños 50 🎉</h1>
+
+<h2>¡Estás invitado a celebrar!</h2>
+
+<div class="card">
+
+<p><b>📅 Fecha</b><br>Sábado 21 de marzo</p>
+
+<p><b>⏰ Hora</b><br>21:00 Hrs</p>
+
+<p><b>📍 Lugar</b><br>Parcela R & V</p>
+
+<button class="map"
+onclick="window.open('https://maps.app.goo.gl/Zp3C1t5icEyZyLrN6')">
+📍 Cómo llegar
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>⏳ Falta para la celebración</h3>
+
+<div id="countdown"></div>
+
+</div>
+
+<div class="card">
+
+<h3>Confirmar asistencia</h3>
+
+<button class="rsvp"
+onclick="window.open('https://wa.me/56988885577')">
+📱 Confirmar por WhatsApp
+</button>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fireworks-js@2/dist/index.umd.js"></script>
+
+<script>
+
+const container = document.getElementById("fireworks");
+
+const fireworks = new Fireworks.default(container);
+
+fireworks.start();
+
+function lanzarConfeti(){
+
+confetti({
+particleCount:200,
+spread:100,
+origin:{y:0.6}
+});
+
+}
+
+setTimeout(lanzarConfeti,1500);
+
+const eventDate = new Date("March 21, 2026 21:00:00").getTime();
+
+const countdown = setInterval(function(){
+
+const now = new Date().getTime();
+
+const distance = eventDate - now;
+
+const days = Math.floor(distance/(1000*60*60*24));
+const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+const seconds = Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("countdown").innerHTML =
+days+"d "+hours+"h "+minutes+"m "+seconds+"s";
+
+if(distance < 0){
+clearInterval(countdown);
+document.getElementById("countdown").innerHTML="¡La fiesta comenzó!";
+}
+
+},1000);
+
+</script>
+
+</body>
+</html>

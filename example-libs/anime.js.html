@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Anime.js Demo</title>
+
+<style>
+.box{
+  width:100px;
+  height:100px;
+  background:red;
+  margin:100px auto;
+}
+</style>
+
+</head>
+<body>
+
+<div class="box"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+<script>
+anime({
+  targets: '.box',
+  translateX: 250,
+  rotate: '1turn',
+  duration: 2000,
+  loop: true,
+  direction: 'alternate'
+});
+</script>
+
+</body>
+</html>

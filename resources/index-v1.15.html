@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cumpleaños 50</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<style>
+  /* ===== Fondo y tipografía ===== */
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #000000, #0a0a1a, #12122c);
+    color: #f5f0e6;
+    text-align: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+    cursor: pointer;
+  }
+
+  .container {
+    padding: 40px 15px;
+    max-width: 500px;
+    width: 90%;
+    margin: auto;
+  }
+
+  /* ===== Título animado ===== */
+  h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700aa;
+    animation: glow-title 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow-title {
+    from { text-shadow: 0 0 8px #ffd70088, 0 0 12px #ffd70066; }
+    to   { text-shadow: 0 0 16px #ffd700aa, 0 0 24px #ffd70088; }
+  }
+
+  .subtitle {
+    font-size: 1.3em;
+    opacity: 0.85;
+    margin-bottom: 40px;
+    color: #f0e6c8;
+    animation: fade-in 2s ease forwards;
+  }
+
+  /* ===== Cards ===== */
+  .card {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fade-in 1s ease forwards;
+  }
+
+  @keyframes fade-in {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .info {
+    margin: 10px 0;
+    font-size: 1.1em;
+    color: #eee8c1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .info i {
+    color: #ffd700;
+    font-size: 1.3em;
+  }
+
+  /* ===== Botones animados ===== */
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #f0e6c8;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s, box-shadow 0.3s;
+    backdrop-filter: blur(10px);
+    text-shadow: 0 0 3px #ffd70055;
+    border: 1.5px solid #ffd70088;
+    box-shadow:
+      0 0 5px 1px #ffd70055,
+      inset 0 0 3px 1px rgba(255, 215, 0, 0.15);
+    animation: glow-button 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow-button {
+    from { box-shadow: 0 0 5px 1px #ffd70055, inset 0 0 3px 1px rgba(255,215,0,0.15); }
+    to   { box-shadow: 0 0 12px 3px #ffd70088, inset 0 0 6px 1px rgba(255,215,0,0.2); }
+  }
+
+  button:hover {
+    background: rgba(255,255,255,0.25);
+    border-color: #ffd700aa;
+    text-shadow: 0 0 8px #ffd700bb;
+    box-shadow: 0 0 14px 3px #ffd700aa, inset 0 0 6px 2px rgba(255,215,0,0.25);
+    transform: translateY(-2px);
+  }
+
+  /* Botón WhatsApp */
+  .whatsapp {
+    background: rgba(0, 255, 0, 0.15);
+    border: 1px solid rgba(0,255,0,0.6);
+    color: #bfffbfff;
+    text-shadow: 0 0 4px #00ff00aa;
+    animation: glow-green 2s ease-in-out infinite alternate;
+  }
+
+  .whatsapp i { font-size: 20px; }
+
+  .whatsapp:hover {
+    background: rgba(0,255,0,0.25);
+    border-color: rgba(0,255,0,0.8);
+    text-shadow: 0 0 8px #00ff00bb;
+    transform: translateY(-2px);
+  }
+
+  @keyframes glow-green {
+    from { box-shadow: 0 0 5px 1px #00ff0055, inset 0 0 3px 1px rgba(0,255,0,0.15); }
+    to   { box-shadow: 0 0 12px 3px #00ff0088, inset 0 0 6px 1px rgba(0,255,0,0.2); }
+  }
+
+  /* ===== Contador en línea ===== */
+  #countdown {
+    display: flex;
+    justify-content: center;
+    gap: 8px; /* espacio optimizado */
+    margin-top: 15px;
+    font-weight: 700;
+    font-family: 'Segoe UI', sans-serif;
+    flex-wrap: nowrap; /* siempre en una línea */
+  }
+
+  .countdown-segment {
+    background: rgba(0,0,0,0.95);
+    border-radius: 15px;
+    padding: 12px 8px;
+    width: 60px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px 1px #ffd70055, inset 0 0 5px 1px rgba(255,215,0,0.15);
+    border:1px solid #ffd70088;
+    user-select:none;
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+
+  .countdown-segment:hover { 
+    background: rgba(0,0,0,1); 
+    box-shadow:0 0 6px 1.2px #ffd70088, inset 0 0 6px 1.2px rgba(255,215,0,0.2); 
+  }
+
+  .countdown-number { font-size: 1.8em; }
+  .countdown-label { font-size: 0.75em; margin-top:5px; letter-spacing:1.2px; color:#ffcc0099; }
+
+  #fireworks { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
+  .footer { margin-top:30px; font-size:0.9em; opacity:0.75; color:#ddd8bb; }
+
+  /* ===== Media Queries para móviles ===== */
+  @media (max-width: 480px) {
+    h1 { font-size: 2em; }
+    .subtitle { font-size: 1em; }
+    .countdown-number { font-size: 1.4em; }
+    .countdown-label { font-size: 0.65em; }
+    .countdown-segment { width: 50px; height: 65px; padding: 10px 5px; }
+  }
+</style>
+</head>
+
+<body>
+  <div id="fireworks"></div>
+
+  <div class="container">
+    <h1><i class="fa-solid fa-cake-candles"></i> 50 Años</h1>
+    <div class="subtitle">¡Celebremos juntos este momento especial!</div>
+
+    <div class="card" style="animation-delay:0.3s;">
+      <div class="info"><i class="fa-solid fa-calendar-days"></i><b>Sábado 21 de marzo</b></div>
+      <div class="info"><i class="fa-solid fa-clock"></i><b>21:00 Hrs</b></div>
+      <div class="info"><i class="fa-solid fa-map-marker-alt"></i><b>Parcela R & V</b></div>
+
+      <button onclick="abrirMapa()"><i class="fa-solid fa-map-location-dot"></i> Cómo llegar</button>
+    </div>
+
+    <div class="card" style="animation-delay:0.5s;">
+      <h3>⏳ Falta para la celebración</h3>
+      <div id="countdown"></div>
+    </div>
+
+    <div class="card" style="animation-delay:0.7s;">
+      <h3>Confirmar asistencia</h3>
+      <button class="whatsapp" onclick="confirmar()"><i class="fab fa-whatsapp"></i> Confirmar por WhatsApp</button>
+    </div>
+
+    <div class="footer">Te esperamos para celebrar 🎉</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2/dist/index.umd.js"></script>
+
+  <script>
+    const container = document.getElementById("fireworks");
+    const fireworks = new Fireworks.default(container, { hue:{min:0,max:360}, delay:{min:15,max:30} });
+    fireworks.start();
+
+    function confeti(){ 
+      confetti({ particleCount:200, spread:100, origin:{y:0.6} }); 
+    }
+
+    function abrirMapa(){ 
+      confeti(); 
+      setTimeout(()=>{window.open("https://maps.app.goo.gl/Zp3C1t5icEyZyLrN6");},400);
+    }
+
+    function confirmar(){ 
+      confeti(); 
+      setTimeout(()=>{window.open("https://wa.me/56988885577");},400);
+    }
+
+    // Confeti en cualquier clic de la página (excepto botones)
+    document.body.addEventListener('click', (e) => {
+      if (!e.target.closest('button')) {
+        confeti();
+      }
+    });
+
+    const eventDate = new Date("March 21, 2026 21:00:00").getTime();
+
+    function pad(v){ return v<10?"0"+v:v; }
+
+    function actualizarCountdown(){
+      const now = new Date().getTime();
+      const dist = eventDate-now;
+      if(dist<0){
+        document.getElementById("countdown").innerHTML=`<div class="countdown-segment" style="width:100%"><div class="countdown-number">🎉</div><div class="countdown-label">¡La fiesta comenzó!</div></div>`;
+        return;
+      }
+      const d=Math.floor(dist/(1000*60*60*24));
+      const h=Math.floor((dist%(1000*60*60*24))/(1000*60*60));
+      const m=Math.floor((dist%(1000*60*60))/(1000*60));
+      const s=Math.floor((dist%(1000*60))/1000);
+      document.getElementById("countdown").innerHTML=`
+      <div class="countdown-segment"><div class="countdown-number">${pad(d)}</div><div class="countdown-label">D</div></div>
+      <div class="countdown-segment"><div class="countdown-number">${pad(h)}</div><div class="countdown-label">H</div></div>
+      <div class="countdown-segment"><div class="countdown-number">${pad(m)}</div><div class="countdown-label">M</div></div>
+      <div class="countdown-segment"><div class="countdown-number">${pad(s)}</div><div class="countdown-label">S</div></div>`;
+    }
+
+    actualizarCountdown(); 
+    setInterval(actualizarCountdown,1000);
+  </script>
+
+</body>
+</html>

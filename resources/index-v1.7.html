@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Cumpleaños 50</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color:white;
+  text-align:center;
+  overflow-x:hidden;
+}
+
+.container{
+  padding:60px 20px;
+  max-width:500px;
+  margin:auto;
+}
+
+h1{
+  font-size:3em;
+  margin-bottom:10px;
+  color:#FFD700;
+}
+
+.subtitle{
+  font-size:1.3em;
+  opacity:0.9;
+  margin-bottom:40px;
+}
+
+.card{
+  backdrop-filter:blur(12px);
+  background:rgba(255,255,255,0.05); /* Más transparente para ver mejor fuegos artificiales */
+  border-radius:20px;
+  padding:30px;
+  margin-bottom:25px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.info{
+  margin:10px 0;
+  font-size:1.1em;
+}
+
+button{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  width:100%;
+  padding:15px;
+  margin-top:15px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.2);
+  background:rgba(255,255,255,0.1);
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+  backdrop-filter:blur(8px);
+}
+
+button:hover{
+  background:rgba(255,255,255,0.2);
+  transform:translateY(-2px);
+}
+
+.whatsapp{
+  background:rgba(37,211,102,0.25);
+  border:1px solid rgba(37,211,102,0.5);
+}
+
+.whatsapp i{
+  font-size:20px;
+}
+
+/* NUEVO estilo para el contador */
+
+#countdown{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+  font-weight: 700;
+  color: #FFD700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.countdown-segment {
+  background: rgba(0, 0, 0, 0.6); /* negro semitransparente */
+  border-radius: 15px;
+  padding: 20px 15px;
+  width: 70px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  user-select: none;
+  transition: background 0.3s;
+}
+
+.countdown-segment:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.countdown-number {
+  font-size: 2.5em;
+  line-height: 1;
+}
+
+.countdown-label {
+  font-size: 0.9em;
+  margin-top: 8px;
+  letter-spacing: 1.5px;
+  color: #ffcc00cc;
+}
+
+#fireworks{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+}
+
+.footer{
+  margin-top:30px;
+  font-size:0.9em;
+  opacity:0.7;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="fireworks"></div>
+
+<div class="container">
+
+<h1>🎂 50 Años</h1>
+<div class="subtitle">¡Celebremos juntos este momento especial!</div>
+
+<div class="card">
+
+  <div class="info">📅 <b>Sábado 21 de marzo</b></div>
+  <div class="info">⏰ <b>21:00 Hrs</b></div>
+  <div class="info">📍 <b>Parcela R & V</b></div>
+
+  <button onclick="abrirMapa()">
+    📍 Cómo llegar
+  </button>
+
+</div>
+
+<div class="card">
+
+  <h3>⏳ Falta para la celebración</h3>
+  <div id="countdown">
+    <!-- Los segmentos se llenarán con JS -->
+  </div>
+
+</div>
+
+<div class="card">
+
+  <h3>Confirmar asistencia</h3>
+
+  <button class="whatsapp" onclick="confirmar()">
+    <i class="fab fa-whatsapp"></i>
+    Confirmar por WhatsApp
+  </button>
+
+</div>
+
+<div class="footer">
+  Te esperamos para celebrar 🎉
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fireworks-js@2/dist/index.umd.js"></script>
+
+<script>
+
+const container = document.getElementById("fireworks");
+
+const fireworks = new Fireworks.default(container,{
+  hue:{min:0,max:360},
+  delay:{min:15,max:30}
+});
+
+fireworks.start();
+
+function confeti(){
+  confetti({
+    particleCount:200,
+    spread:100,
+    origin:{y:0.6}
+  });
+}
+
+function abrirMapa(){
+  confeti();
+  setTimeout(()=>{
+    window.open("https://maps.app.goo.gl/Zp3C1t5icEyZyLrN6")
+  },400)
+}
+
+function confirmar(){
+  confeti();
+  setTimeout(()=>{
+    window.open("https://wa.me/56988885577")
+  },400)
+}
+
+const eventDate = new Date("March 21, 2026 21:00:00").getTime();
+
+function pad(value){
+  return value < 10 ? "0" + value : value;
+}
+
+function actualizarCountdown(){
+  const now = new Date().getTime();
+  const distance = eventDate - now;
+
+  if(distance < 0){
+    document.getElementById("countdown").innerHTML = `<div class="countdown-segment" style="width:100%"><div class="countdown-number">🎉</div><div class="countdown-label">¡La fiesta comenzó!</div></div>`;
+    return;
+  }
+
+  const days = Math.floor(distance/(1000*60*60*24));
+  const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+  const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+  const seconds = Math.floor((distance%(1000*60))/1000);
+
+  document.getElementById("countdown").innerHTML = `
+    <div class="countdown-segment">
+      <div class="countdown-number">${pad(days)}</div>
+      <div class="countdown-label">D</div>
+    </div>
+    <div class="countdown-segment">
+      <div class="countdown-number">${pad(hours)}</div>
+      <div class="countdown-label">H</div>
+    </div>
+    <div class="countdown-segment">
+      <div class="countdown-number">${pad(minutes)}</div>
+      <div class="countdown-label">M</div>
+    </div>
+    <div class="countdown-segment">
+      <div class="countdown-number">${pad(seconds)}</div>
+      <div class="countdown-label">S</div>
+    </div>
+  `;
+}
+
+actualizarCountdown();
+setInterval(actualizarCountdown,1000);
+
+</script>
+
+</body>
+</html>

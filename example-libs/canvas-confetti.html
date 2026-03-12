@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Confetti Example</title>
+</head>
+<body style="text-align:center; margin-top:100px;">
+
+<h1>🎉 Celebración</h1>
+<button onclick="lanzarConfeti()">Lanzar confeti</button>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+function lanzarConfeti() {
+  confetti({
+    particleCount: 150,
+    spread: 70,
+    origin: { y: 0.6 }
+  });
+}
+</script>
+
+</body>
+</html>
