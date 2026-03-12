@@ -1,435 +1,394 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cumpleaños 50 Rene</title>
 
-<title>Cumpleaños 50</title>
+    <meta property="og:title" content="Invitación a Mi Cumpleaños">
+    <meta property="og:description" content="Ven a celebrar este día especial conmigo 🎂">
+    <meta property="og:image" content="https://amenadev.github.io/invitation/cake.jpg">
 
-<meta property="og:title" content="Invitación a Mi Cumpleaños">
-<meta property="og:description" content="Ven a celebrar este día especial conmigo 🎂">
-<meta property="og:image" content="https://amenadev.github.io/invitation/cake.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <style>
+        /* =========================
+        FONDO
+        ========================= */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #000, #0a0a1a, #12122c);
+            color: #f5f0e6;
+            text-align: center;
+            overflow-x: hidden;
+            min-height: 100vh;
+            cursor: pointer;
+        }
 
-<style>
+        /* =========================
+        ENTRADA SUAVE
+        ========================= */
+        .fade {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1.2s forwards;
+        }
 
-/* =========================
-FONDO
-========================= */
+        .fade:nth-child(1) {
+            animation-delay: .2s
+        }
 
-body{
-margin:0;
-font-family:'Segoe UI',sans-serif;
-background:linear-gradient(135deg,#000,#0a0a1a,#12122c);
-color:#f5f0e6;
-text-align:center;
-overflow-x:hidden;
-min-height:100vh;
-cursor:pointer;
-}
+        .fade:nth-child(2) {
+            animation-delay: .4s
+        }
 
-/* =========================
-ENTRADA SUAVE
-========================= */
+        .fade:nth-child(3) {
+            animation-delay: .6s
+        }
 
-.fade{
-opacity:0;
-transform:translateY(30px);
-animation:fadeUp 1.2s forwards;
-}
+        .fade:nth-child(4) {
+            animation-delay: .8s
+        }
 
-.fade:nth-child(1){animation-delay:.2s}
-.fade:nth-child(2){animation-delay:.4s}
-.fade:nth-child(3){animation-delay:.6s}
-.fade:nth-child(4){animation-delay:.8s}
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-@keyframes fadeUp{
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
+        /* =========================
+        CONTENEDOR
+        ========================= */
+        .container {
+            padding: 40px 15px;
+            max-width: 500px;
+            width: 90%;
+            margin: auto;
+        }
 
-/* =========================
-CONTENEDOR
-========================= */
+        /* =========================
+        TITULO CON EFECTO VELA
+        ========================= */
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #ffd700;
+            text-shadow: 0 0 12px #ffd700aa;
+            animation: titleGlow 2s infinite alternate;
+        }
 
-.container{
-padding:40px 15px;
-max-width:500px;
-width:90%;
-margin:auto;
-}
+        @keyframes titleGlow {
+            from {
+                text-shadow: 0 0 10px #ffd70088
+            }
 
-/* =========================
-TITULO CON EFECTO VELA
-========================= */
+            to {
+                text-shadow: 0 0 25px #ffd700
+            }
+        }
 
-h1{
-font-size:3em;
-margin-bottom:10px;
-color:#ffd700;
-text-shadow:0 0 12px #ffd700aa;
-animation:titleGlow 2s infinite alternate;
-}
+        .subtitle {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            opacity: .9;
+        }
 
-@keyframes titleGlow{
-from{ text-shadow:0 0 10px #ffd70088 }
-to{ text-shadow:0 0 25px #ffd700 }
-}
+        /* =========================
+        CARDS
+        ========================= */
+        .card {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
 
-.subtitle{
-font-size:1.3em;
-margin-bottom:40px;
-opacity:.9;
-}
+        .info {
+            margin: 10px 0;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-/* =========================
-CARDS
-========================= */
+        .info i {
+            color: #ffd700;
+            font-size: 1.3em;
+        }
 
-.card{
-backdrop-filter:blur(12px);
-background:rgba(255,255,255,0.05);
-border-radius:20px;
-padding:30px;
-margin-bottom:25px;
-box-shadow:0 10px 30px rgba(0,0,0,0.8);
-border:1px solid rgba(255,255,255,0.12);
-}
+        /* =========================
+        BOTONES
+        ========================= */
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.12);
+            color: #f0e6c8;
+            font-size: 16px;
+            cursor: pointer;
+            border: 1.5px solid #ffd70088;
+            box-shadow: 0 0 8px #ffd70055;
+            transition: .3s;
+        }
 
-.info{
-margin:10px 0;
-font-size:1.1em;
-display:flex;
-align-items:center;
-gap:10px;
-}
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 16px #ffd700aa;
+        }
 
-.info i{
-color:#ffd700;
-font-size:1.3em;
-}
+        .whatsapp {
+            background: rgba(0, 255, 0, 0.15);
+            border: 1px solid rgba(0, 255, 0, 0.6);
+            color: #bfffbf;
+            box-shadow: 0 0 10px #00ff0077;
+        }
 
-/* =========================
-BOTONES
-========================= */
+        /* =========================
+        COUNTDOWN
+        ========================= */
+        #countdown {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
 
-button{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:10px;
-width:100%;
-padding:15px;
-margin-top:15px;
-border-radius:12px;
-background:rgba(255,255,255,0.12);
-color:#f0e6c8;
-font-size:16px;
-cursor:pointer;
-border:1.5px solid #ffd70088;
-box-shadow:0 0 8px #ffd70055;
-transition:.3s;
-}
+        .countdown-segment {
+            background: rgba(0, 0, 0, 0.95);
+            border-radius: 15px;
+            padding: 12px 8px;
+            width: 60px;
+            height: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ffd70088;
+            box-shadow: 0 0 5px #ffd70055;
+        }
 
-button:hover{
-transform:translateY(-2px);
-box-shadow:0 0 16px #ffd700aa;
-}
+        .countdown-number {
+            font-size: 1.8em;
+        }
 
-.whatsapp{
-background:rgba(0,255,0,0.15);
-border:1px solid rgba(0,255,0,0.6);
-color:#bfffbf;
-box-shadow:0 0 10px #00ff0077;
-}
+        .countdown-label {
+            font-size: .7em;
+            color: #ffcc0099;
+        }
 
-/* =========================
-COUNTDOWN
-========================= */
+        /* =========================
+        FUEGOS
+        ========================= */
+        #fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
 
-#countdown{
-display:flex;
-justify-content:center;
-gap:8px;
-margin-top:15px;
-}
+        /* =========================
+        BOTON MUSICA
+        ========================= */
+        #music-btn {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, .6);
+            color: #ffd700;
+            border: 2px solid #ffd700aa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 9999;
+            box-shadow: 0 0 10px #ffd70088;
+        }
 
-.countdown-segment{
-background:rgba(0,0,0,0.95);
-border-radius:15px;
-padding:12px 8px;
-width:60px;
-height:70px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-border:1px solid #ffd70088;
-box-shadow:0 0 5px #ffd70055;
-}
+        #music-btn.playing {
+            animation: pulse 1.2s infinite;
+        }
 
-.countdown-number{
-font-size:1.8em;
-}
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 10px #ffd70088
+            }
+            50% {
+                box-shadow: 0 0 25px #ffd700
+            }
+            100% {
+                box-shadow: 0 0 10px #ffd70088
+            }
+        }
 
-.countdown-label{
-font-size:.7em;
-color:#ffcc0099;
-}
-
-/* =========================
-FUEGOS
-========================= */
-
-#fireworks{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index:-1;
-}
-
-/* =========================
-BOTON MUSICA
-========================= */
-
-#music-btn{
-position:fixed;
-bottom:22px;
-right:22px;
-width:52px;
-height:52px;
-border-radius:50%;
-background:rgba(0,0,0,.6);
-color:#ffd700;
-border:2px solid #ffd700aa;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:18px;
-cursor:pointer;
-z-index:9999;
-box-shadow:0 0 10px #ffd70088;
-}
-
-#music-btn.playing{
-animation:pulse 1.2s infinite;
-}
-
-@keyframes pulse{
-0%{box-shadow:0 0 10px #ffd70088}
-50%{box-shadow:0 0 25px #ffd700}
-100%{box-shadow:0 0 10px #ffd70088}
-}
-
-/* =========================
-RESPONSIVE
-========================= */
-
-@media(max-width:480px){
-
-h1{font-size:2em}
-
-.countdown-segment{
-width:50px;
-height:60px;
-}
-
-.countdown-number{
-font-size:1.4em
-}
-
-}
-
-</style>
+        /* =========================
+        RESPONSIVE
+        ========================= */
+        @media(max-width:480px) {
+            h1 {
+                font-size: 2em
+            }
+            .countdown-segment {
+                width: 50px;
+                height: 60px;
+            }
+            .countdown-number {
+                font-size: 1.4em
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-<div id="fireworks"></div>
-
-<div class="container">
-
-<h1 class="fade"><i class="fa-solid fa-cake-candles"></i> 50 Años</h1>
-
-<div class="subtitle fade">¡Celebremos juntos este momento especial!</div>
-
-<div class="card fade">
-
-<div class="info"><i class="fa-solid fa-calendar-days"></i><b>Sábado 21 de marzo</b></div>
-
-<div class="info"><i class="fa-solid fa-clock"></i><b>21:00 Hrs</b></div>
-
-<div class="info"><i class="fa-solid fa-map-marker-alt"></i><b>Parcela R & V</b></div>
-
-<button onclick="abrirMapa()">
-<i class="fa-solid fa-map-location-dot"></i>
-Cómo llegar
-</button>
-
-</div>
-
-<div class="card fade">
-
-<h3>⏳ Falta para la celebración</h3>
-
-<div id="countdown"></div>
-
-</div>
-
-<div class="card fade">
-
-<h3>Confirmar asistencia</h3>
-
-<button class="whatsapp" onclick="confirmar()">
-<i class="fab fa-whatsapp"></i>
-Confirmar por WhatsApp
-</button>
-
-</div>
-
-</div>
-
-<button id="music-btn">
-<i class="fa-solid fa-play"></i>
-</button>
-
-<audio id="bg-music" loop>
-<source src="cumpleaños_sonora-palacios_128k.mp3" type="audio/mpeg">
-</audio>
-
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fireworks-js@2/dist/index.umd.js"></script>
-
-<script>
-
-/* FUEGOS ARTIFICIALES */
-
-const container=document.getElementById("fireworks")
-
-const fireworks=new Fireworks.default(container,{
-hue:{min:0,max:360},
-delay:{min:15,max:30}
-})
-
-fireworks.start()
-
-/* CONFETI */
-
-function confeti(){
-confetti({particleCount:200,spread:100,origin:{y:0.6}})
-}
-
-/* CLICK EN TODA LA PAGINA */
-
-document.body.addEventListener("click",(e)=>{
-if(!e.target.closest("button")){
-confeti()
-}
-})
-
-/* BOTONES */
-
-function abrirMapa(){
-confeti()
-setTimeout(()=>{
-window.open("https://maps.app.goo.gl/Zp3C1t5icEyZyLrN6")
-},400)
-}
-
-function confirmar(){
-confeti()
-setTimeout(()=>{
-window.open("https://wa.me/56988885577")
-},400)
-}
-
-/* COUNTDOWN */
-
-const eventDate=new Date("March 21, 2026 21:00:00").getTime()
-
-function pad(v){return v<10?"0"+v:v}
-
-function actualizarCountdown(){
-
-const now=new Date().getTime()
-const dist=eventDate-now
-
-if(dist<0){
-
-confeti()
-
-document.getElementById("countdown").innerHTML="🎉 ¡Comenzó la fiesta!"
-
-return
-}
-
-const d=Math.floor(dist/(1000*60*60*24))
-const h=Math.floor((dist%(1000*60*60*24))/(1000*60*60))
-const m=Math.floor((dist%(1000*60*60))/(1000*60))
-const s=Math.floor((dist%(1000*60))/1000)
-
-document.getElementById("countdown").innerHTML=`
-
-<div class="countdown-segment">
-<div class="countdown-number">${pad(d)}</div>
-<div class="countdown-label">Día</div>
-</div>
-
-<div class="countdown-segment">
-<div class="countdown-number">${pad(h)}</div>
-<div class="countdown-label">Hor</div>
-</div>
-
-<div class="countdown-segment">
-<div class="countdown-number">${pad(m)}</div>
-<div class="countdown-label">Min</div>
-</div>
-
-<div class="countdown-segment">
-<div class="countdown-number">${pad(s)}</div>
-<div class="countdown-label">Seg</div>
-</div>
-`
-}
-
-actualizarCountdown()
-
-setInterval(actualizarCountdown,1000)
-
-/* MUSICA */
-
-const musicBtn=document.getElementById("music-btn")
-const music=document.getElementById("bg-music")
-
-musicBtn.addEventListener("click",()=>{
-
-if(music.paused){
-
-music.play()
-
-musicBtn.innerHTML='<i class="fa-solid fa-pause"></i>'
-
-musicBtn.classList.add("playing")
-
-}else{
-
-music.pause()
-
-musicBtn.innerHTML='<i class="fa-solid fa-play"></i>'
-
-musicBtn.classList.remove("playing")
-
-}
-
-})
-
-</script>
-
+    <div id="fireworks"></div>
+    <div class="container">
+        <h1 class="fade"><i class="fa-solid fa-cake-candles"></i> 50 Años</h1>
+        <div class="subtitle fade">¡Celebremos juntos este momento especial!</div>
+        <div class="card fade">
+            <div class="info"><i class="fa-solid fa-calendar-days"></i><b>Sábado 21 de marzo</b></div>
+            <div class="info"><i class="fa-solid fa-clock"></i><b>21:00 Hrs</b></div>
+            <div class="info"><i class="fa-solid fa-map-marker-alt"></i><b>Parcela R & V</b></div>
+            <button onclick="abrirMapa()">
+                <i class="fa-solid fa-map-location-dot"></i>
+                Cómo llegar
+            </button>
+        </div>
+        <div class="card fade">
+            <h3>⏳ Falta para la celebración</h3>
+            <div id="countdown"></div>
+        </div>
+        <div class="card fade">
+            <h3>Confirmar asistencia</h3>
+            <button class="whatsapp" onclick="confirmar()">
+                <i class="fab fa-whatsapp"></i>
+                Confirmar por WhatsApp
+            </button>
+        </div>
+    </div>
+    <button id="music-btn">
+        <i class="fa-solid fa-play"></i>
+    </button>
+    <audio id="bg-music" loop>
+        <source src="cumpleaños_sonora-palacios_128k.mp3" type="audio/mpeg">
+    </audio>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2/dist/index.umd.js"></script>
+    <script>
+        /* FUEGOS ARTIFICIALES */
+        const container = document.getElementById("fireworks")
+        const fireworks = new Fireworks.default(container, {
+            hue: { min: 0, max: 360 },
+            delay: { min: 15, max: 30 }
+        })
+        fireworks.start()
+
+        /* CONFETI */
+        function confeti() {
+            confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } })
+        }
+
+        /* CLICK EN TODA LA PAGINA */
+        document.body.addEventListener("click", (e) => {
+            if (!e.target.closest("button")) {
+                confeti()
+            }
+        })
+
+        /* BOTONES */
+        function abrirMapa() {
+            confeti()
+            setTimeout(() => {
+                window.open("https://maps.app.goo.gl/CpX5uckPZ8k8zamt8")
+            }, 400)
+        }
+
+        function confirmar() {
+            confeti()
+
+            const mensaje = "Hola Verónica,%0AConfirmo asistencia al cumpleaños de Rene 👍%0ASaludos";
+
+            setTimeout(() => {
+                window.open(`https://wa.me/56985029080?text=${mensaje}`)
+            }, 400)
+        }
+
+        /* COUNTDOWN */
+        const eventDate = new Date("March 21, 2026 21:00:00").getTime()
+
+        function pad(v) { return v < 10 ? "0" + v : v }
+
+        function actualizarCountdown() {
+            const now = new Date().getTime()
+            const dist = eventDate - now
+            if (dist < 0) {
+                confeti()
+                document.getElementById("countdown").innerHTML = "🎉 ¡Comenzó la fiesta!"
+                return
+            }
+
+            const d = Math.floor(dist / (1000 * 60 * 60 * 24))
+            const h = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+            const m = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60))
+            const s = Math.floor((dist % (1000 * 60)) / 1000)
+
+            document.getElementById("countdown").innerHTML = `
+            <div class="countdown-segment">
+            <div class="countdown-number">${pad(d)}</div>
+            <div class="countdown-label">Día</div>
+            </div>
+
+            <div class="countdown-segment">
+            <div class="countdown-number">${pad(h)}</div>
+            <div class="countdown-label">Hor</div>
+            </div>
+
+            <div class="countdown-segment">
+            <div class="countdown-number">${pad(m)}</div>
+            <div class="countdown-label">Min</div>
+            </div>
+
+            <div class="countdown-segment">
+            <div class="countdown-number">${pad(s)}</div>
+            <div class="countdown-label">Seg</div>
+            </div>
+            `
+        }
+
+        actualizarCountdown()
+
+        setInterval(actualizarCountdown, 1000)
+
+        /* MUSICA */
+        const musicBtn = document.getElementById("music-btn")
+        const music = document.getElementById("bg-music")
+
+        musicBtn.addEventListener("click", () => {
+            if (music.paused) {
+                music.play()
+                musicBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'
+                musicBtn.classList.add("playing")
+            } else {
+                music.pause()
+                musicBtn.innerHTML = '<i class="fa-solid fa-play"></i>'
+                musicBtn.classList.remove("playing")
+            }
+        })
+    </script>
 </body>
 </html>
