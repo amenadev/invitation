@@ -26,3 +26,8 @@ Mira la invitación interactiva:
 - IA
   - https://www.fotor.com/images/create/ (Generador de imagenes)
   - https://chatgpt.com/
+
+# Mejoras futuras
+- Explosión de fuegos artificiales cuando se abre la página
+- Fade-in de la música (empieza suave y sube)
+- Animación de abrir invitación tipo sobre elegante
