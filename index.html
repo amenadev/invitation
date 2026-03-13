@@ -291,7 +291,7 @@
         <i class="fa-solid fa-play"></i>
     </button>
     <audio id="bg-music" loop>
-        <source src="cumpleaños_sonora-palacios_128k.mp3" type="audio/mpeg">
+        <source src="the-weeknd_blinding_128k.mp3" type="audio/mpeg">
     </audio>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2/dist/index.umd.js"></script>
@@ -388,16 +388,43 @@ Saludos 🎉`;
         const musicBtn = document.getElementById("music-btn")
         const music = document.getElementById("bg-music")
 
+        let musicaIniciada = false
+
+        function iniciarMusica(){
+
+            if(!musicaIniciada){
+
+                music.play()
+
+                musicBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'
+                musicBtn.classList.add("playing")
+
+                musicaIniciada = true
+            }
+
+        }
+
+        /* PRIMER TOQUE EN LA PAGINA */
+        document.addEventListener("click", iniciarMusica, { once:true })
+
+
+        /* BOTON PLAY / PAUSE */
         musicBtn.addEventListener("click", () => {
+
             if (music.paused) {
+
                 music.play()
                 musicBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'
                 musicBtn.classList.add("playing")
+
             } else {
+
                 music.pause()
                 musicBtn.innerHTML = '<i class="fa-solid fa-play"></i>'
                 musicBtn.classList.remove("playing")
+
             }
+
         })
     </script>
 </body>
