@@ -13,6 +13,16 @@ Mira la invitación interactiva:
 
 ¡Confirma tu asistencia!
 ```
+ó 
+```txt
+Dicen que los 50 son los nuevos 30… ¡y vamos a comprobarlo! 😎🎉🍻🕺🎵
+
+Estás invitado a celebrar el cumpleaños N° 50 de Juan Cuevas.
+
+La hora, el lugar, cómo llegar y la confirmación de asistencia la encontrarás en la invitación del enlace.
+
+¡Te esperamos! 🍻
+```
 
 ## Datos
 - https://maps.app.goo.gl/CpX5uckPZ8k8zamt8
