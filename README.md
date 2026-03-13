@@ -36,6 +36,7 @@ La hora, el lugar, cómo llegar y la confirmación de asistencia la encontrarás
 - IA
   - https://www.fotor.com/images/create/ (Generador de imagenes)
   - https://chatgpt.com/
+- https://wutools.com/audio/audio-trimmer Edición MP3
 
 # Mejoras futuras
 - Explosión de fuegos artificiales cuando se abre la página
